@@ -15,6 +15,8 @@
  */
 package com.example.android.implicitintents;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -75,6 +77,16 @@ public class MainActivity extends AppCompatActivity {
                 "TODO: Create Your Own Implicit Intent",
                 Toast.LENGTH_SHORT)
                 .show();
+    }
+    public void openWebPage(String web_path)
+    {
+        Intent intent=new Intent(Intent.ACTION_VIEW);
+        Uri.Builder uri_builder=new Uri.Builder();
+        uri_builder.scheme("http").path("www.udacity.com");
+        intent.setData(uri_builder.build());
+         //intent.setData(uri_builder);
+
+        //intent.addFlags()
     }
 
     // TODO (1) Create a method called openWebPage that accepts a String as a parameter
