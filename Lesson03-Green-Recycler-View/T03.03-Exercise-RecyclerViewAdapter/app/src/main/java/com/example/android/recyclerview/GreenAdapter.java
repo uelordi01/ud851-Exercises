@@ -20,6 +20,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.List;
+
 /**
  * We couldn't come up with a good name for this class. Then, we realized
  * that this lesson is about RecyclerView.
@@ -33,8 +35,28 @@ import android.widget.TextView;
  * contents are green.
  */
 // TODO (4) From GreenAdapter, extend RecyclerView.Adapter<NumberViewHolder>
-public class GreenAdapter {
+public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHolder>{
+    private int mNumberItems;
 
+    public GreenAdapter(int mNumberItems) {
+        this.mNumberItems = mNumberItems;
+    }
+
+    @Override
+    public NumberViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new NumberViewHolder(parent);
+    }
+
+    @Override
+    public void onBindViewHolder(NumberViewHolder holder, int position, List<Object> payloads) {
+        super.onBindViewHolder(holder, position, payloads);
+        holder.bind(position);
+    }
+
+    @Override
+    public int getItemCount() {
+        return mNumberItems;
+    }
     // TODO (1) Add a private int variable called mNumberItems
 
     // TODO (2) Create a constructor for GreenAdapter that accepts an int as a parameter for numberOfItems
