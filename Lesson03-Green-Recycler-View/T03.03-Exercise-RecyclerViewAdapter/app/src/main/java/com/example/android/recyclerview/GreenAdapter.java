@@ -48,10 +48,10 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
     }
 
     @Override
-    public void onBindViewHolder(NumberViewHolder holder, int position, List<Object> payloads) {
-        super.onBindViewHolder(holder, position, payloads);
+    public void onBindViewHolder(NumberViewHolder holder, int position) {
         holder.bind(position);
     }
+
 
     @Override
     public int getItemCount() {
