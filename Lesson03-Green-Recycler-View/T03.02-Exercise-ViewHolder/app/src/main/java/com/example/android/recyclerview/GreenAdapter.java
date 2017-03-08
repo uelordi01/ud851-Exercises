@@ -23,6 +23,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 /**
  * We couldn't come up with a good name for this class. Then, we realized
  * that this lesson is about RecyclerView.
@@ -37,15 +39,7 @@ import android.widget.TextView;
  */
 public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHolder> {
 
-    // TODO (1) Create a layout resource in res/layout/ called number_list_item.xml
 
-    // Do steps 2 - 11 within number_list_item.xml
-    // TODO (2) Make the root layout a FrameLayout
-    // TODO (3) Make the width match_parent and the height wrap_content
-    // TODO (4) Set the padding to 16dp
-    // TODO (5) Add a TextView as the only child of the FrameLayout
-    // TODO (6) Give the TextView an ID "@+id/tv_item_number"
-    // TODO (7) Set the height and width to wrap_content
     // TODO (8) Align the TextView to the start of the parent
     // TODO (9) Center the TextView vertically in the layout
     // TODO (10) Set the font family to monospace
@@ -105,7 +99,19 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
         Log.d(TAG, "#" + position);
         holder.bind(position);
     }
+    class NumberViewHolder extends RecyclerView.ViewHolder
+    {
+        TextView listItemNumberView;
 
+        public NumberViewHolder(View itemView) {
+            super(itemView);
+            listItemNumberView=(TextView)itemView.findViewById(R.id.tv_item_number);
+        }
+        void bind(int listIndex) {
+            listItemNumberView.setText(""+listIndex);
+        }
+
+    }
     /**
      * This method simply returns the number of items to display. It is used behind the scenes
      * to help layout our Views and for animations.
@@ -129,4 +135,4 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
     // TODO (18) Be careful to get the String representation of listIndex, as using setText with an int does something different
 
     }
-}
+
