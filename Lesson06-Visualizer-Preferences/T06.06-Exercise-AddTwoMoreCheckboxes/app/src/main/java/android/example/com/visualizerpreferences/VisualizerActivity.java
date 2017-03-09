@@ -68,6 +68,12 @@ public class VisualizerActivity extends AppCompatActivity implements SharedPrefe
         if (key.equals(getString(R.string.pref_show_bass_key))) {
             mVisualizerView.setShowBass(sharedPreferences.getBoolean(key, getResources().getBoolean(R.bool.pref_show_bass_default)));
         }
+        if (key.equals(getString(R.string.pref_show_mid_key))) {
+            mVisualizerView.setShowMid(sharedPreferences.getBoolean(key,getResources().getBoolean(R.bool.pref_show_treble_default)));
+        }
+        if(key.equals(getString(R.string.pref_show_treble_key))) {
+            mVisualizerView.setShowTreble(sharedPreferences.getBoolean(key,getResources().getBoolean(R.bool.pref_show_treble_default)));
+        }
     }
 
     @Override
