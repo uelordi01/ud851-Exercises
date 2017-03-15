@@ -16,6 +16,9 @@
 
 package com.udacity.example.quizexample;
 
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -90,6 +93,16 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private class MyContentProvider extends AsyncTask<Void,Void,Cursor> {
+
+        @Override
+        protected Cursor doInBackground(Void... params) {
+
+            String uri = "content://net.sgoliver.android.contentproviders/clientes";
+            final Uri CONTENT_URI = Uri.parse(uri);
+            return null;
+        }
+    }
     // TODO (1) Create AsyncTask with the following generic types <Void, Void, Cursor>
     // TODO (2) In the doInBackground method, write the code to access the DroidTermsExample
     // provider and return the Cursor object
